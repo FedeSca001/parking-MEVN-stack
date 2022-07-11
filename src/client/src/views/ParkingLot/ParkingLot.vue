@@ -4,14 +4,14 @@
     <v-btn color="error" to="/notavailable">Busy</v-btn>
     <v-btn color="success" to="/available">Free</v-btn>
     <v-btn to="/addpark">Add Parking</v-btn>
-    <v-btn @click="listPark.getData()">get</v-btn>
+    <v-btn @click="listPark.getData()">Refresh</v-btn>
 </div>
     <ul class="cartCont">
-        <li v-for="site in listPark.listSite"
+        <li v-for="site in listPark.listSites"
             :key="site.id"
             class="cartSite">
             <p class="number">
-                {{site.id}}
+                {{site.number}}
             </p>
             <div v-if="site.available" class="free">
                 Free
@@ -22,9 +22,7 @@
             <div v-else class="Busy">
                 Busy
             </div>
-            <v-btn class="btnGo"
-                :to="{name:'setting', params: {id:site.id}}">
-                GO</v-btn>
+
         </li>
     </ul>
 </template>
@@ -39,6 +37,7 @@ export default {
     }),
     setup(){
         const listPark = useParking();
+        listPark.getData()
         return{
             listPark
         }

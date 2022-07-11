@@ -7,11 +7,9 @@ export const useParking = defineStore('parksApi',{
   }),
   actions:{
     async getData (){
-
           const url = 'http://localhost:5000/sites/park/';
           const r = await axios.get(url);
-          this.listSites = await r.json();
-          console.log(this.listSites);
+          this.listSites = await r.data;
   }
   }
 })
