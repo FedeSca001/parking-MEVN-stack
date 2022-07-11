@@ -35,7 +35,7 @@ h3{
     font-size: 1.5vw;
 }
 .number{
-    font-size: 2vw;
+    font-size: 4vw;
     font-weight: 600;
 }
 .cartCont{
@@ -47,7 +47,7 @@ h3{
 .cartSite{
     text-align: center;
     padding: 1.5vw 0vw;
-    width: 5vw;
+    width: 10vw;
     background-color: green;
     border-radius: 0.5vw;
     color: white;

@@ -11,5 +11,8 @@ const parkSchema = mongoose.Schema({
     available: {
         type: Boolean
     },
+    date: {
+        type: Date
+    }
 });
 module.exports = mongoose.model('parkSite', parkSchema);

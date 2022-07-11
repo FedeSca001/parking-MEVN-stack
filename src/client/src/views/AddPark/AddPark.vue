@@ -12,7 +12,12 @@
         type="number"
         required
         ></v-text-field>
-        <v-btn @click="sendPark(this.numb, this.name)">
+         <v-switch
+            v-model="check"
+            label="Available"
+            hide-details
+        ></v-switch>
+        <v-btn @click="sendPark(this.numb, this.name, this.check)">
             Send
         </v-btn>
   </div>
@@ -24,14 +29,16 @@ export default {
     data: ()=>({
         name: "",
         numb: 0,
+        check: Boolean,
     }),
     setup(){
-        const sendPark = async (numb, name)=>{
+        const sendPark = async (numb, name, check)=>{
         const url = 'http://localhost:5000/sites/park'
         const data = {
             number: numb,
             name: name,
-            available: true
+            available: check,
+            date: new Date()
         }
         const post = await axios.post( url , data);
         const resp = await post.data;

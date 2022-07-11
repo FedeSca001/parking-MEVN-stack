@@ -20,9 +20,8 @@
                 Out of service
             </div>
             <div v-else class="Busy">
-                Busy
+                {{site.name.charAt(0).toUpperCase()}}{{ site.name.slice(1).toLowerCase()}}
             </div>
-
         </li>
     </ul>
 </template>
@@ -62,7 +61,7 @@ export default {
     padding: 0.1vw 1vw;
 }
 .number{
-    font-size: 2vw;
+    font-size: 4vw;
     font-weight: 600;
 }
 .free{
@@ -83,7 +82,7 @@ export default {
 .cartSite{
     text-align: center;
     padding: 1.5vw 0vw;
-    width: 5vw;
+    width: 10vw;
     background-color: rgb(87, 87, 87);
     border-radius: 0.5vw;
     color: white;
