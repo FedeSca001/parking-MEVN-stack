@@ -16,7 +16,7 @@ Content-Type: application/json
     "available": false
 }
 ###
-DELETE http://localhost:5000/sites/park/8 HTTP/1.1
+DELETE http://localhost:5000/sites/park/ HTTP/1.1
 ###
 DELETE http://localhost:5000/sites/park/2 HTTP/1.1
 
