@@ -3,9 +3,9 @@
     <h3>Busy parking: {{items.length}}</h3>
     <ul class="cartCont">
         <li v-for="item in items"
-            :key="item.id"
+            :key="item.number"
             class="cartSite">
-                <p class="number">{{item.id}}</p>
+                <p class="number">{{item.number}}</p>
         </li>
     </ul>
 </template>

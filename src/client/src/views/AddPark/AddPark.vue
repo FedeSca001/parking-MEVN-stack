@@ -12,7 +12,7 @@
         type="number"
         required
         ></v-text-field>
-        <v-btn @click="sendPark">
+        <v-btn @click="sendPark(this.numb, this.name)">
             Send
         </v-btn>
   </div>
@@ -21,26 +21,26 @@
 <script>
 import axios from 'axios';
 export default {
-    data:()=>({
-        name: '',
-        numb: ''
+    data: ()=>({
+        name: "",
+        numb: 0,
     }),
-    methods:{
-        sendPark: async ()=>{
-            try{
-                const url = 'http://localhost:5000/sites/park'
-                const data = {
-                    number: Number(this.numb),
-                    name: this.name,
-                    available: true
-                }
-                const post = await axios.post( url , data);
-                const resp = await post.json();
-                console.log(resp);
-            }catch{
-                err => console.log(err)
-            }
-    }}
+    setup(){
+        const sendPark = async (numb, name)=>{
+        const url = 'http://localhost:5000/sites/park'
+        const data = {
+            number: numb,
+            name: name,
+            available: true
+        }
+        const post = await axios.post( url , data);
+        const resp = await post.data;
+        console.log(resp);
+    }
+    return{
+        sendPark
+    }
+    }
 }
 </script>
 
