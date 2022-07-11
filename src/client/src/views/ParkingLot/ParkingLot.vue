@@ -31,26 +31,18 @@
 
 <script>
 import Reference from '../../components/Reference/Reference.vue';
-import axios from 'axios';
+import {useParking} from '../../store/parkingSites';
 export default {
     components:{Reference},
     data:()=>({
-        sites: []
+        sites: useParking() || []
     }),
-    methods:{
-        getData: async (element)=>{
-            try{
-                const url = 'http://localhost:5000/sites/park';
-                const r = await axios.get(url);
-                const respuesta = await r.json();
-                element = await respuesta;
-                console.log(respuesta);
-                console.log(element);
-            }catch{
-                err => console.log(err)
-            }
+    setup(){
+        const listPark = useParking();
+        return{
+            listPark
         }
-    },
+    }
 }
 </script>
 
