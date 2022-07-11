@@ -4,10 +4,10 @@
     <v-btn color="error" to="/notavailable">Busy</v-btn>
     <v-btn color="success" to="/available">Free</v-btn>
     <v-btn to="/addpark">Add Parking</v-btn>
-    <v-btn @click="getData(this.sites)">get</v-btn>
+    <v-btn @click="listPark.getData()">get</v-btn>
 </div>
     <ul class="cartCont">
-        <li v-for="site in sites"
+        <li v-for="site in listPark.listSite"
             :key="site.id"
             class="cartSite">
             <p class="number">
