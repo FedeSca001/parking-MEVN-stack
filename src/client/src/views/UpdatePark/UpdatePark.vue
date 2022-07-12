@@ -6,7 +6,7 @@
     label="Complete Name"
     required
     ></v-text-field>
-        <v-switch
+    <v-switch
         v-model="check"
         label="avaliable"
         hide-details
