@@ -25,28 +25,32 @@
 
 <script>
 import axios from 'axios';
-import {useParking} from '../../store/parkingSites';
+import {
+    useParking
+} from '../../store/parkingSites';
 export default {
-
-    setup(){
+    setup() {
         const listPark = useParking();
         listPark.getData()
-        const delettePark = async (idPark)=>{
+        const delettePark = async (idPark) => {
             const confirmar = confirm('¿Seguro?');
-            if (confirmar){
-                try{
-                    const url = 'http://localhost:5000/sites/park/'+idPark;
+            if (confirmar) {
+                try {
+                    const url = 'http://localhost:5000/sites/park/' + idPark;
                     const del = await axios.delete(url)
                     console.log(del);
                     listPark.getData();
-                }catch{
+                } catch {
                     err => console.log(err);
-                }}
+                }
+            }
+        }
         return {
-            listPark,delettePark
+          listPark,
+          delettePark
         }
     }
-}}
+}
 </script>
 
 <style scoped>
