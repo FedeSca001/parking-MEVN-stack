@@ -21,9 +21,6 @@
         <div v-if="site.available" class="free">
             Free
         </div>
-        <div v-else-if="site.available === 'outOfService'" class="outServ">
-            Out of service
-        </div>
         <div v-else class="Busy">
             {{site.name.charAt(0).toUpperCase()}}{{ site.name.slice(1).toLowerCase()}}
         </div>
@@ -101,9 +98,6 @@ export default {
 }
 .Busy{
     background-color: red;
-}
-.outServ{
-    background-color: black;
 }
 .cartCont{
     display: flex;
