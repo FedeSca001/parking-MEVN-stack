@@ -29,8 +29,8 @@ router.get('/park/:id', (req, res)=>{
 //Update - add params
 router.put('/park/:id', (req, res)=>{
     const { id } = req.params;
-    const { available } = req.body;
-    parkSchema.updateOne({number: id},{$set:{available}})
+    const { available, name, } = req.body;
+    parkSchema.updateOne({number: id},{$set:{available, name}})
         .then(data => {res.json(data)})
         .catch(err => console.log(err));
 });
