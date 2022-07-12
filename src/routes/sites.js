@@ -8,7 +8,7 @@ router.post('/park', async (req, res)=>{
     try{
         const newPark = parkSchema(req.body);
         const data = await newPark.save();
-        console.log(data);
+        console.log(data,'data');
         }catch{
             err => console.log(err);
         }
