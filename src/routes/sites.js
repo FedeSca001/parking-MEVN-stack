@@ -26,7 +26,7 @@ router.get('/park/:id', (req, res)=>{
         .then((data)=>{res.json(data)})
         .catch(err=> console.log(err));
 });
-//Update
+//Update - add params
 router.put('/park/:id', (req, res)=>{
     const { id } = req.params;
     const { available } = req.body;
