@@ -21,6 +21,11 @@ const routes = [
     path: '/addpark',
     name: 'add-park',
     component: ()=> import('../views/AddPark/AddPark.vue')
+  },
+  {
+    path: '/update/:id',
+    name: 'update-comp',
+    component: ()=> import('../views/UpdatePark/UpdatePark.vue')
   }
 ]
 

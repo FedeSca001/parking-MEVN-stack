@@ -17,6 +17,7 @@
         <div v-else class="Busy">
             {{site.name.charAt(0).toUpperCase()}}{{ site.name.slice(1).toLowerCase()}}
         </div>
+        <v-btn :to="{name:'update-comp', params: {id:site.number} }" class="btnUpdate">update</v-btn>
         <p class="dateText">{{site.date.hour}}</p>
         <p class="dateText">{{site.date.fecha}}</p>
     </li>
@@ -47,13 +48,18 @@ export default {
         }
         return {
           listPark,
-          delettePark
+          delettePark,
         }
     }
 }
 </script>
 
 <style scoped>
+.btnUpdate{
+    font-size: 1.5vw;
+    margin: 0.1vw;
+    padding: 0.1vw;
+}
 .cartCont{
     display: flex;
     flex-wrap: wrap;

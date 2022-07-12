@@ -9,7 +9,7 @@ Content-Type: application/json
     "date": ""
 }
 ###
-GET http://localhost:5000/sites/park HTTP/1.1
+GET http://localhost:5000/sites/park/ HTTP/1.1
 ###
 PUT http://localhost:5000/sites/park/2 HTTP/1.1
 Content-Type: application/json
