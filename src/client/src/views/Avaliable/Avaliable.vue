@@ -13,11 +13,11 @@
 <script>
 import { useParking } from '../../store/parkingSites';
 export default {
-    name: 'available-comp',
+    name: 'avaliable-comp',
     setup(){
         const usePark = useParking()
         const list = usePark.listSites;
-        const items = list.filter(element=>element.available === true)
+        const items = list.filter(element=>element.avaliable === true)
         return {
             items
         }

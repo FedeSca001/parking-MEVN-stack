@@ -8,7 +8,7 @@
     ></v-text-field>
         <v-switch
         v-model="check"
-        label="Available"
+        label="avaliable"
         hide-details
     ></v-switch>
     <v-btn @click="updateOne(listPark.listSites[$route.params.id-1].number,
@@ -41,7 +41,7 @@ export default {
             const dataObject =
                 {
                 name: name,
-                available: check
+                avaliable: check
                 }
             const data = await axios.put(url,dataObject);
             const response = await data.data;

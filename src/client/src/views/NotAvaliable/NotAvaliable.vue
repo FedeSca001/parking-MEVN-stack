@@ -15,11 +15,11 @@
 import { useParking } from '../../store/parkingSites';
 
 export default {
-    name: 'notavailable-comp',
+    name: 'notavaliable-comp',
     setup(){
         const usePark = useParking()
         const list = usePark.listSites;
-        const items = list.filter( elem => elem.available === false )
+        const items = list.filter( elem => elem.avaliable === false )
 
         return {
             items

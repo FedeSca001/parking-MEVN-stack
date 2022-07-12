@@ -14,7 +14,7 @@
         ></v-text-field>
          <v-switch
             v-model="check"
-            label="Available"
+            label="avaliable"
             hide-details
         ></v-switch>
         <v-btn @click="sendPark(this.numb, this.name, this.check)">
@@ -42,7 +42,7 @@ export default {
         const data = {
             number: numb,
             name: name,
-            available: check,
+            avaliable: check,
             date: {
                 hour:`${new Date().getHours()}:${new Date().getMinutes()}`,
                 fecha: `${new Date().getDate()}/${new Date().getMonth()+1}/${new Date().getFullYear()}`

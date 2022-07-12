@@ -8,14 +8,14 @@ const routes = [
     component: ParkingLot
   },
   {
-    path: '/available',
-    name: 'available',
-    component: ()=> import('../views/Available/Available.vue')
+    path: '/avaliable',
+    name: 'avaliable',
+    component: ()=> import('../views/Avaliable/Avaliable.vue')
   },
   {
-    path: '/notavailable',
-    name: 'notavailable-comp',
-    component: ()=> import('../views/NotAvailable/NotAvailable.vue')
+    path: '/notavaliable',
+    name: 'notavaliable-comp',
+    component: ()=> import('../views/NotAvaliable/NotAvaliable.vue')
   },
   {
     path: '/addpark',

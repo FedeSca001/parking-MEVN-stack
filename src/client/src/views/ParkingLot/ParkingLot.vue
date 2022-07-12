@@ -1,8 +1,8 @@
 <template>
     <Reference/>
     <div class="dFlex">
-        <v-btn color="error" to="/notavailable">Busy</v-btn>
-        <v-btn color="success" to="/available">Free</v-btn>
+        <v-btn color="error" to="/notavaliable">Busy}</v-btn>
+        <v-btn color="success" to="/avaliable">Free</v-btn>
         <v-btn to="/addpark">Add Parking</v-btn>
         <v-btn @click="listPark.getData()">Refresh</v-btn>
     </div>
@@ -19,7 +19,7 @@ export default {
         const listPark = useParking();
         listPark.getData()
         return{
-            listPark
+            listPark,
         }
     }
 }

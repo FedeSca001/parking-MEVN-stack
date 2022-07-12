@@ -8,7 +8,7 @@ const parkSchema = mongoose.Schema({
         type: Number,
         required: true,
     },
-    available: {
+    avaliable: {
         type: Boolean
     },
     date: {

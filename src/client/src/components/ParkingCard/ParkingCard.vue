@@ -11,7 +11,7 @@
         <p class="number">
             {{site.number}}
         </p>
-        <div v-if="site.available" class="free">
+        <div v-if="site.avaliable" class="free">
             Free
         </div>
         <div v-else class="Busy">
