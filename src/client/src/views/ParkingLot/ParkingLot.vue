@@ -6,31 +6,31 @@
     <v-btn to="/addpark">Add Parking</v-btn>
     <v-btn @click="listPark.getData()">Refresh</v-btn>
 </div>
-    <ul class="cartCont">
-        <li v-for="site in listPark.listSites"
-            :key="site.id"
-            class="cartSite">
-            <v-btn
-                class="crossDelete"
-                @click="deletePark(site.number)">
-                    X
-            </v-btn>
-            <p class="number">
-                {{site.number}}
-            </p>
-            <div v-if="site.available" class="free">
-                Free
-            </div>
-            <div v-else-if="site.available === 'outOfService'" class="outServ">
-                Out of service
-            </div>
-            <div v-else class="Busy">
-                {{site.name.charAt(0).toUpperCase()}}{{ site.name.slice(1).toLowerCase()}}
-            </div>
-            <p class="dateText">{{site.date.hour}}</p>
-            <p class="dateText">{{site.date.fecha}}</p>
-        </li>
-    </ul>
+<ul class="cartCont">
+    <li v-for="site in listPark.listSites"
+        :key="site.id"
+        class="cartSite">
+        <v-btn
+            class="crossDelete"
+            @click="deletePark(site.number)">
+                X
+        </v-btn>
+        <p class="number">
+            {{site.number}}
+        </p>
+        <div v-if="site.available" class="free">
+            Free
+        </div>
+        <div v-else-if="site.available === 'outOfService'" class="outServ">
+            Out of service
+        </div>
+        <div v-else class="Busy">
+            {{site.name.charAt(0).toUpperCase()}}{{ site.name.slice(1).toLowerCase()}}
+        </div>
+        <p class="dateText">{{site.date.hour}}</p>
+        <p class="dateText">{{site.date.fecha}}</p>
+    </li>
+</ul>
 </template>
 
 <script>
@@ -67,7 +67,7 @@ export default {
 <style scoped>
 .dateText{
     margin: 0.5vw auto;
-    font-size: 1vw;
+    font-size: 1.3vw;
 }
 .crossDelete{
     width: 1vw;
