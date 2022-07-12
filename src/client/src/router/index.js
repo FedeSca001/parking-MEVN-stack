@@ -18,11 +18,6 @@ const routes = [
     component: ()=> import('../views/NotAvailable/NotAvailable.vue')
   },
   {
-    path:'/setting/:id',
-    name: 'setting',
-    component: ()=> import('../views/SettingCard/SettingCard.vue')
-  },
-  {
     path: '/addpark',
     name: 'add-park',
     component: ()=> import('../views/AddPark/AddPark.vue')

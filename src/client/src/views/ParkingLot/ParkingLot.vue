@@ -1,79 +1,35 @@
 <template>
-<Reference/>
-<div class="dFlex">
-    <v-btn color="error" to="/notavailable">Busy</v-btn>
-    <v-btn color="success" to="/available">Free</v-btn>
-    <v-btn to="/addpark">Add Parking</v-btn>
-    <v-btn @click="listPark.getData()">Refresh</v-btn>
-</div>
-<ul class="cartCont">
-    <li v-for="site in listPark.listSites"
-        :key="site.id"
-        class="cartSite">
-        <v-btn
-            class="crossDelete"
-            @click="deletePark(site.number)">
-                X
-        </v-btn>
-        <p class="number">
-            {{site.number}}
-        </p>
-        <div v-if="site.available" class="free">
-            Free
-        </div>
-        <div v-else class="Busy">
-            {{site.name.charAt(0).toUpperCase()}}{{ site.name.slice(1).toLowerCase()}}
-        </div>
-        <p class="dateText">{{site.date.hour}}</p>
-        <p class="dateText">{{site.date.fecha}}</p>
-    </li>
-</ul>
+    <Reference/>
+    <div class="dFlex">
+        <v-btn color="error" to="/notavailable">Busy</v-btn>
+        <v-btn color="success" to="/available">Free</v-btn>
+        <v-btn to="/addpark">Add Parking</v-btn>
+        <v-btn @click="listPark.getData()">Refresh</v-btn>
+    </div>
+    <parking-card :lista="listPark"/>
 </template>
 
 <script>
-import axios from 'axios';
 import Reference from '../../components/Reference/Reference.vue';
 import {useParking} from '../../store/parkingSites';
+import ParkingCard from '../../components/ParkingCard/ParkingCard.vue';
 export default {
-    components:{Reference},
+    components:{Reference, ParkingCard},
     data:()=>({
         sites: useParking() || []
     }),
     setup(){
         const listPark = useParking();
         listPark.getData()
-        const deletePark = async (idPark)=>{
-            const confirmar = confirm('Seguro?');
-            if (confirmar){
-                try{
-                    const url = 'http://localhost:5000/sites/park/'+idPark;
-                    const del = await axios.delete(url)
-                    console.log(del);
-                    listPark.getData()
-                }catch{
-                    err => console.log(err);
-                }
-        }}
         return{
-            listPark,deletePark
+            listPark
         }
     }
 }
 </script>
 
 <style scoped>
-.dateText{
-    margin: 0.5vw auto;
-    font-size: 1.3vw;
-}
-.crossDelete{
-    width: 1vw;
-    height: 2vw;
-    font-size: 1vw;
-    background-color: rgb(190, 7, 7);
-    margin: 0vw 1vw;
-    padding: 0;
-}
+
 .reference{
     display: flex;
     flex-wrap: wrap;
@@ -88,31 +44,6 @@ export default {
     color: white;
 
     padding: 0.1vw 1vw;
-}
-.number{
-    font-size: 4vw;
-    font-weight: 600;
-}
-.free{
-    background-color: green;
-}
-.Busy{
-    background-color: red;
-}
-.cartCont{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2vw;
-    padding: 5vw;
-}
-.cartSite{
-    text-align: center;
-    padding: 0.5vw 0vw;
-    width: 10vw;
-    background-color: rgb(87, 87, 87);
-    border-radius: 0.5vw;
-    color: white;
-    list-style: none;
 }
 .dFlex{
     margin: 1vw;
