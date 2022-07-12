@@ -4,15 +4,14 @@ const parkSchema = require('../models/sitesSchema');
 const router = express.Router();
 
 //Add site
-router.post('/park', (req, res)=>{
-    const newPark = parkSchema(req.body);
-    newPark.save()
-        .then((data)=>{
-        res.json(data)
+router.post('/park', async (req, res)=>{
+    try{
+        const newPark = parkSchema(req.body);
+        const data = await newPark.save();
         console.log(data);
-    }).catch(err =>{
-        console.log(err);
-    });
+        }catch{
+            err => console.log(err);
+        }
 });
 //Busca toda la base de datos
 router.get('/park', (req, res)=>{

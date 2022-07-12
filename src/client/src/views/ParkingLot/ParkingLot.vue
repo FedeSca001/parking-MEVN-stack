@@ -10,6 +10,11 @@
         <li v-for="site in listPark.listSites"
             :key="site.id"
             class="cartSite">
+            <v-btn
+                class="crossDelete"
+                @click="deletePark(site.number)">
+                    X
+            </v-btn>
             <p class="number">
                 {{site.number}}
             </p>
@@ -27,6 +32,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 import Reference from '../../components/Reference/Reference.vue';
 import {useParking} from '../../store/parkingSites';
 export default {
@@ -37,14 +43,31 @@ export default {
     setup(){
         const listPark = useParking();
         listPark.getData()
+        const deletePark = async (idPark)=>{
+            try{
+                const url = 'http://localhost:5000/sites/park/'+idPark;
+                const del = await axios.delete(url)
+                console.log(del);
+            }catch{
+                err => console.log(err);
+            }
+        }
         return{
-            listPark
+            listPark,deletePark
         }
     }
 }
 </script>
 
 <style scoped>
+.crossDelete{
+    width: 1vw;
+    height: 1vw;
+    font-size: 0.7vw;
+    background-color: rgb(190, 7, 7);
+    margin: 0vw 1vw;
+    padding: 0;
+}
 .reference{
     display: flex;
     flex-wrap: wrap;
