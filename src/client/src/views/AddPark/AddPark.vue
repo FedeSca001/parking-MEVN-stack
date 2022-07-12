@@ -33,12 +33,20 @@ export default {
     }),
     setup(){
         const sendPark = async (numb, name, check)=>{
+            if(check === true){
+                check = true
+            } else{
+                check = false
+            }
         const url = 'http://localhost:5000/sites/park'
         const data = {
             number: numb,
             name: name,
             available: check,
-            date: new Date()
+            date: {
+                hour:`${new Date().getHours()}:${new Date().getMinutes()}`,
+                fecha: `${new Date().getDate()}/${new Date().getMonth()+1}/${new Date().getFullYear()}`
+                }
         }
         const post = await axios.post( url , data);
         const resp = await post.data;

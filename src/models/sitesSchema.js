@@ -12,7 +12,7 @@ const parkSchema = mongoose.Schema({
         type: Boolean
     },
     date: {
-        type: Date
+        type: Object
     }
 });
 module.exports = mongoose.model('parkSite', parkSchema);
