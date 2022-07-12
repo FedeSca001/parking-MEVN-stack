@@ -5,7 +5,7 @@
         class="cartSite">
         <v-btn
             class="crossDelete"
-            @click="deletePark(site.number)">
+            @click="delettePark(site.number)">
                 X
         </v-btn>
         <p class="number">
@@ -25,27 +25,25 @@
 
 <script>
 import axios from 'axios';
+import {useParking} from '../../store/parkingSites';
 export default {
-    props:[
-        'lista'
-    ],
-    data:()=>({
-        listPark: this.lista
-    }),
+
     setup(){
-        const deletePark = async (idPark)=>{
-            const confirmar = confirm('Seguro?');
+        const listPark = useParking();
+        listPark.getData()
+        const delettePark = async (idPark)=>{
+            const confirmar = confirm('¿Seguro?');
             if (confirmar){
                 try{
                     const url = 'http://localhost:5000/sites/park/'+idPark;
                     const del = await axios.delete(url)
                     console.log(del);
-                    this.listPark.getData()
+                    listPark.getData();
                 }catch{
                     err => console.log(err);
                 }}
         return {
-            deletePark
+            listPark,delettePark
         }
     }
 }}

@@ -31,7 +31,7 @@ const conectDB = async ()=>{
     }
 }
 
-app.listen(port, ()=> {
-    conectDB();
+app.listen(port, async ()=> {
+    await conectDB();
     console.log('logued',port);
 });

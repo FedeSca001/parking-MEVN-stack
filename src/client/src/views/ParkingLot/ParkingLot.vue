@@ -6,7 +6,7 @@
         <v-btn to="/addpark">Add Parking</v-btn>
         <v-btn @click="listPark.getData()">Refresh</v-btn>
     </div>
-    <parking-card :lista="listPark"/>
+    <ParkingCard />
 </template>
 
 <script>
@@ -15,9 +15,6 @@ import {useParking} from '../../store/parkingSites';
 import ParkingCard from '../../components/ParkingCard/ParkingCard.vue';
 export default {
     components:{Reference, ParkingCard},
-    data:()=>({
-        sites: useParking() || []
-    }),
     setup(){
         const listPark = useParking();
         listPark.getData()
