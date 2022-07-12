@@ -5,7 +5,7 @@ Content-Type: application/json
 {
     "number": 13,
     "name": "Pepino",
-    "available": true,
+    "avaliable": true,
     "date": ""
 }
 ###
@@ -15,7 +15,7 @@ PUT http://localhost:5000/sites/park/4 HTTP/1.1
 Content-Type: application/json
 
 {
-    "available": false,
+    "avaliable": false,
     "name": "harryng"
 }
 ###

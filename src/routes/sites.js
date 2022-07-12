@@ -26,11 +26,12 @@ router.get('/park/:id', (req, res)=>{
         .then((data)=>{res.json(data)})
         .catch(err=> console.log(err));
 });
+
 //Update - add params
 router.put('/park/:id', (req, res)=>{
     const { id } = req.params;
-    const { available, name, } = req.body;
-    parkSchema.updateOne({number: id},{$set:{available, name}})
+    const { avaliable, name, } = req.body;
+    parkSchema.updateOne({number: id},{$set:{avaliable, name}})
         .then(data => {res.json(data)})
         .catch(err => console.log(err));
 });
