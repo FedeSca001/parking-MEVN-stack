@@ -1,5 +1,4 @@
 <template>
-    <Reference/>
     <div class="dFlex">
         <v-btn color="error" to="/notavaliable">Busy</v-btn>
         <v-btn color="success" to="/avaliable">Free</v-btn>
@@ -9,11 +8,9 @@
 </template>
 
 <script>
-import Reference from '../../components/Reference/Reference.vue';
 import ParkingCard from '../../components/ParkingCard/ParkingCard.vue';
 export default {
     components:{
-        Reference,
         ParkingCard
     }
 }

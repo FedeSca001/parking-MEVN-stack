@@ -1,22 +1,26 @@
 <template>
-  <div class="cont-form">
-      <h2>Park N°: {{listPark.listSites[$route.params.id-1].number}}</h2>
-    <v-text-field
-    v-model="nameCard"
-    label="Complete Name"
-    required
-    ></v-text-field>
-    <v-switch
-        v-model="check"
-        label="avaliable"
-        hide-details
-    ></v-switch>
-    <v-btn @click="updateOne(listPark.listSites[$route.params.id-1].number,
-                                this.nameCard,
-                                this.check)">
-        Send
-    </v-btn>
-  </div>
+    <div class="cont-form">
+        <div v-if="!listPark.listSites[$route.params.id-1].avaliable">
+            <h3>N°: {{listPark.listSites[$route.params.id-1].number}}</h3>
+            <h3>Name: {{listPark.listSites[$route.params.id-1].name.charAt(0).toUpperCase()}}{{listPark.listSites[$route.params.id-1].name.slice(1).toLowerCase()}}</h3>
+        </div>
+        <v-text-field
+            v-model="nameCard"
+            label="Complete Name"
+            required
+        ></v-text-field>
+        <v-switch
+            v-model="check"
+            label="avaliable"
+            hide-details
+        ></v-switch>
+        <v-btn 
+            @click="updateOne(listPark.listSites[$route.params.id-1].number,
+                this.nameCard,
+                this.check)">
+            Send
+        </v-btn>
+    </div>
 </template>
 
 <script>
@@ -27,7 +31,7 @@ import {
 export default {
     data:()=>({
         nameCard: "",
-        check: Boolean
+        check: true
     }),
     setup(){
         const listPark = useParking();
