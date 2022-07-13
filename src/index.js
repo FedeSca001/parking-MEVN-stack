@@ -2,6 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const morgan = require('morgan');
 const cors = require('cors');
+const multer = require('multer');
+
 require('dotenv').config();
 
 const app = express();
@@ -11,6 +13,10 @@ const port = process.env.PORT || 5050;
 app.use(express.json());
 app.use(morgan('dev')),
 app.use(cors());
+
+
+
+
 
 //Route
 app.use('/sites',require('./routes/sites'));
@@ -30,6 +36,23 @@ const conectDB = async ()=>{
         err => console.log(err)
     }
 }
+
+//Filesystem
+const fileStorageEngine = multer.diskStorage({
+    destination: (req, file, cd)=>{
+        cb(null, './images')
+    },
+    filename: (req,)=>{
+        cb(null,Date.now() + '-' + file.originalname)
+    }
+});
+
+const upload = multer({storage : fileStorageEngine})
+
+app.post('/single', upload.single('image'), (req,res)=>{
+    console.log(req.file);
+    res.send('single file upload')
+})
 
 app.listen(port, async ()=> {
     await conectDB();

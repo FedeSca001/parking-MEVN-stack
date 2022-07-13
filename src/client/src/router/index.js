@@ -26,6 +26,10 @@ const routes = [
     path: '/update/:id',
     name: 'update-comp',
     component: ()=> import('../views/UpdatePark/UpdatePark.vue')
+  },
+  {
+    path: '/uploadImg',
+    component: ()=> import('../views/AddImg/AddImg.vue')
   }
 ]
 
