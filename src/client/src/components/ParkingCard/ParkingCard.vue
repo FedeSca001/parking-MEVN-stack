@@ -17,7 +17,7 @@
         <div v-else class="Busy">
             {{site.name.charAt(0).toUpperCase()}}{{ site.name.slice(1).toLowerCase()}}
         </div>
-        <button :to="{name:'update-comp', params: {id:site.number} }" class="btnUpdate">UPDATE</button>
+        <v-btn :to="{name:'update-comp', params: {id:site.number} }" class="btnUpdate">UPDATE</v-btn>
         <p class="dateText">{{site.date.hour}}</p>
         <p class="dateText">{{site.date.fecha}}</p>
     </li>
@@ -58,9 +58,11 @@ export default {
 .btnUpdate{
     color: gray;
     background-color: white;
-    font-size: 1.5vw;
+    font-size: 1.6vw;
     margin: 0.5vw auto;
-    padding: 0.5vw;
+    width: 80%;
+    height: 3vw;
+    padding: 0vw;
     border-radius: 1vw;
 }
 .cartCont{
