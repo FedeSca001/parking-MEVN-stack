@@ -44,8 +44,7 @@ export default {
                 avaliable: check
                 }
             const data = await axios.put(url,dataObject);
-            const response = await data.data;
-            console.log(response);
+            console.log(data.data);
             listPark.getData();
         }
         return {

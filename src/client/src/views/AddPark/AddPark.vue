@@ -49,8 +49,7 @@ export default {
                 }
         }
         const post = await axios.post( url , data);
-        const resp = await post.data;
-        console.log(resp);
+        console.log(post);
     }
     return{
         sendPark

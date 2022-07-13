@@ -6,6 +6,7 @@
             :key="item.number"
             class="cartSite">
                 <p class="number">{{item.number}}</p>
+            <v-btn :to="{name:'update-comp', params: {id:item.number} }" class="btnUpdate">update</v-btn>
         </li>
     </ul>
 </template>
@@ -26,6 +27,11 @@ export default {
 </script>
 
 <style scoped>
+.btnUpdate{
+    font-size: 1.5vw;
+    margin: 0.1vw;
+    padding: 0.1vw;
+}
 h2{
     text-align: center;
     font-size: 3vw;
