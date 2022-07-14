@@ -15,9 +15,6 @@ app.use(morgan('dev')),
 app.use(cors());
 
 
-
-
-
 //Route
 app.use('/sites',require('./routes/sites'));
 app.use('/users',require('./routes/users'));
@@ -26,16 +23,6 @@ app.get('/', (req, res)=>{
     res.send('api en marcha');
 });
 
-//Mongo DB
-const conectDB = async ()=>{
-    try{
-        const data = await mongoose.connect(process.env.MONGODB_URI);
-        console.log('conectado a base de datos ')
-        return {data};
-    } catch {
-        err => console.log(err)
-    }
-}
 
 //Filesystem
 const fileStorageEngine = multer.diskStorage({
@@ -53,6 +40,18 @@ app.post('/single', upload.single('image'), (req,res)=>{
     console.log(req.file);
     res.send('single file upload')
 })
+
+
+//Mongo DB
+const conectDB = async ()=>{
+    try{
+        const data = await mongoose.connect(process.env.MONGODB_URI);
+        console.log('conectado a base de datos ')
+        return {data};
+    } catch {
+        err => console.log(err)
+    }
+}
 
 //INIT
 app.listen(port, async ()=> {
