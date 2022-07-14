@@ -1,22 +1,36 @@
 <template>
-
-    <input type="file" >
-    <button @click="addimg">Add img</button>    
-
+    <form 
+        enctype="multipart/form-data"
+        @submit.prevent="uploadImg">
+        <label for="file">Upload file</label>
+        <input
+            type="file"
+            ref="file"
+            @change="selectFile">
+        <input type="submit">
+    </form>
 </template>
 
 <script>
-import axios from 'axios'
+import axios from 'axios';
 export default {
-    data:()=>({
+    data(){
+        return{
+            file: ""
+        }
+    },
+    methods: {
+        selectFile(){
+            this.file = this.$refs.file.files[0];
+            console.log(`- - this file ${this.file}`);
+        },
+        async uploadImg(){
 
-    }),
-    setup(){
-        const url = 'http://localhost:5000/single'
-        const addimg = axios.post(url, {storage : 'this.img'})
-        console.log(addimg.data);
-        return {
-            addimg
+            try {
+                await axios.post('/single', {storage: this.file});
+            } catch {
+                err => console.log(err);
+            }
         }
     }
 }
