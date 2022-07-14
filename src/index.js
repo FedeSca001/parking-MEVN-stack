@@ -54,6 +54,7 @@ app.post('/single', upload.single('image'), (req,res)=>{
     res.send('single file upload')
 })
 
+//INIT
 app.listen(port, async ()=> {
     await conectDB();
     console.log('logued',port);
