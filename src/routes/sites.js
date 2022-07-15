@@ -14,17 +14,26 @@ router.post('/park', async (req, res)=>{
         }
 });
 //Busca toda la base de datos
-router.get('/park', (req, res)=>{
-    parkSchema.find()
-        .then((data)=>{res.send(data)})
-        .catch(err => console.log(err));
+router.get('/park', async (req, res)=>{
+    try{
+    const data = await parkSchema.find();
+    const response = res.send(data);
+    console.log(response);
+    } catch {
+        err => console.log(err);
+    }
 });
 //Busca por numero de parking
-router.get('/park/:id', (req, res)=>{
-    const { id } = req.params
-    parkSchema.find({"number":id})
-        .then((data)=>{res.json(data)})
-        .catch(err=> console.log(err));
+router.get('/park/:id', async (req, res)=>{
+    try {
+        const { id } = req.params
+        const data = await parkSchema.find({"number":id});
+        const response = await res.send(data);
+        console.log(response);     
+    } catch {
+        err => console.log(err);
+    }
+
 });
 
 //Update - add params
