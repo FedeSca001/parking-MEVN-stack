@@ -2,7 +2,7 @@
   <button  @click="()=>{swichBtn = !swichBtn}" class="swich">Add User</button>
   <button @click="()=>{swichFilter = !swichFilter}">Filter</button>
   <AddUser v-if="swichBtn" />
-  <FilterUsers v-if="swichFilter"/>
+  <FilterUsers v-if="swichFilter" :sendProp="get.listUsers"/>
   <ul v-else>
   <h2 class="title" >Users</h2>
     <li v-for="item in get.listUsers" 
