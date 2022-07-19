@@ -10,13 +10,13 @@ export const useUsers = defineStore('useUser', {
             phone: Number,
             mail: ''
         },
-        usersList: {}
+        listUsers: []
     }),
     actions:{
-        getUsers: async ()=>{
+        async getUsers(){
             const url = 'http://localhost:5000/users/';
-            const r = await axios.get(url);
-            this.usersList = await r.data;
+            const rData = await axios.get(url);
+            this.listUsers = rData.data;
         },
         addUser: async (state)=>{
             try {
