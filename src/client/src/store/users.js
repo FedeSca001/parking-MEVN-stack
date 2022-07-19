@@ -3,25 +3,29 @@ import { defineStore } from 'pinia';
 
 export const useUsers = defineStore('useUser', {
     state:()=>({
-        data:{
-            name: '',
-            dni: Number,
-            age: Number,
-            phone: Number,
-            mail: ''
-        },
         listUsers: []
     }),
     actions:{
         async getUsers(){
+            try {
             const url = 'http://localhost:5000/users/';
             const rData = await axios.get(url);
             this.listUsers = rData.data;
+            } catch{
+                err => console.log(err);
+            }
         },
-        addUser: async (state)=>{
+        addUser: async (name, dni, age, phone, email)=>{
             try {
                 const url = 'http://localhost:5000/users/send';
-                const data = state.data;
+                const data = {
+                    name: name,
+                    dni: dni,
+                    age: age,
+                    phone: phone,
+                    email: email
+                };
+                console.log('data',data);
                 const post = await axios.post(url,data);
                 return await post.json();
             }catch {
