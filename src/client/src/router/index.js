@@ -30,6 +30,10 @@ const routes = [
   {
     path: '/uploadImg',
     component: ()=> import('../views/AddImg/AddImg.vue')
+  },
+  {
+    path: '/usersMain',
+    component: ()=> import('../views/UsersMain/UsersMain.vue')
   }
 ]
 

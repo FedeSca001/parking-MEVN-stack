@@ -8,7 +8,7 @@ router.get('/', async (req, res)=>{
     try{
         const data = await userSchem.find({});
         const response = await res.send(data);
-        console.log(response);
+        console.log(req);
     } catch{
         err => console.log(err);
     }
@@ -19,7 +19,7 @@ router.get('/:id', async (req, res)=>{
     try{
         const data = await userSchem.find({"name": id});
         const response = await res.send(data);
-        console.log(response);
+        return response
     } catch{
         err => console.log(err);
     }
@@ -40,9 +40,9 @@ router.post('/send', async (req, res)=>{
 //Update
 router.put('/up/:id', async (req, res)=>{
     const { id } = req.params;
-    const { name } = req.body;
+    const { name,age,dni,phone,mail } = req.body;
     try{
-        const data = await parkSchema.updateOne({"name": id},{$set:{name}});
+        const data = await parkSchema.updateOne({"name": id},{$set:{name,age,dni,phone,mail}});
         const response = await res.json(data);
         console.log(response);
     } catch {

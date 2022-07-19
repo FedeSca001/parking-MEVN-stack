@@ -10,6 +10,6 @@ export const useParking = defineStore('parksApi',{
           const url = 'http://localhost:5000/sites/park/';
           const r = await axios.get(url);
           this.listSites = await r.data;
-  }
+    }
   }
 })

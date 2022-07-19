@@ -9,16 +9,21 @@ export const useUsers = defineStore('useUser', {
             age: Number,
             phone: Number,
             mail: ''
-        }
+        },
+        usersList: {}
     }),
     actions:{
+        getUsers: async ()=>{
+            const url = 'http://localhost:5000/users/';
+            const r = await axios.get(url);
+            this.usersList = await r.data;
+        },
         addUser: async (state)=>{
             try {
                 const url = 'http://localhost:5000/users/send';
                 const data = state.data;
                 const post = await axios.post(url,data);
-                const response = await post.json();
-                console.log(response);
+                return await post.json();
             }catch {
                 err => console.log(err);
             }

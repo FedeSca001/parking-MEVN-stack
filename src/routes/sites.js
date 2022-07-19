@@ -8,7 +8,8 @@ router.post('/park', async (req, res)=>{
     try{
         const newPark = parkSchema(req.body);
         const data = await newPark.save();
-        console.log(data,'data');
+        const response = await res.send(data);
+        console.log(response);
         }catch{
             err => console.log(err);
         }
@@ -37,12 +38,17 @@ router.get('/park/:id', async (req, res)=>{
 });
 
 //Update - add params
-router.put('/park/:id', (req, res)=>{
-    const { id } = req.params;
-    const { avaliable, name, } = req.body;
-    parkSchema.updateOne({number: id},{$set:{avaliable, name}})
-        .then(data => {res.json(data)})
-        .catch(err => console.log(err));
+router.put('/park/:id', async (req, res)=>{
+    try{
+        const { id } = req.params;
+        const { avaliable, name, } = req.body;
+        const update = await parkSchema.updateOne({number: id},{$set:{avaliable, name}});
+        const response = await res.json(update);
+        console.log(response);
+    } catch {
+        err=>console.log(err);
+    }
+
 });
 //Delete
 router.delete('/park/:id',(req, res)=>{

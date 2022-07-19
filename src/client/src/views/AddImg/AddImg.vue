@@ -25,7 +25,6 @@ export default {
             console.log(`- - this file ${this.file}`);
         },
         async uploadImg(){
-
             try {
                 await axios.post('/single', {storage: this.file});
             } catch {
