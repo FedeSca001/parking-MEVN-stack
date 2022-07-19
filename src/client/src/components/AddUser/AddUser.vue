@@ -33,13 +33,18 @@ export default {
             age: '',
             dni: '',
             phone: '',
-            mail:''
+            mail:'',
         }
     },
     setup(){
         const user = useUsers();
+        const newUser = ()=>{
+            user.addUser(this.name, this.dni, this.age, this.phone, this.mail);
+            user.getUsers()
+        }
         return {
-            user
+            user,
+            newUser
         }
     }
 }

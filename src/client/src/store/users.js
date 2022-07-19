@@ -15,19 +15,19 @@ export const useUsers = defineStore('useUser', {
                 err => console.log(err);
             }
         },
-        addUser: async (name, dni, age, phone, email)=>{
+        addUser: async (naMe, dNi, aGe, pHone, eMail)=>{
             try {
                 const url = 'http://localhost:5000/users/send';
                 const data = {
-                    name: name,
-                    dni: dni,
-                    age: age,
-                    phone: phone,
-                    email: email
+                    name: naMe,
+                    age: aGe,
+                    dni: dNi,
+                    phone: pHone,
+                    mail: eMail
                 };
                 console.log('data',data);
                 const post = await axios.post(url,data);
-                return await post.json();
+                console.log(post);
             }catch {
                 err => console.log(err);
             }

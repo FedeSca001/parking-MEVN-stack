@@ -63,7 +63,7 @@ router.delete('/delet/:id', async (req,res)=>{
 })
 
 //Delete all
-router.delete('delet', async (req,res)=>{
+router.delete('/delet', async (req,res)=>{
     try{
         const data = await userSchem.remove();
         const response = await res.send(data);

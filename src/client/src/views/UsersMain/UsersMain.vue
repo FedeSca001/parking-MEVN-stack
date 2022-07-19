@@ -2,7 +2,7 @@
   <h2 class="title">users</h2>
   <AddUser/>
   <ul>
-    <li v-for="item in data.listUsers" 
+    <li v-for="item in get.listUsers" 
         :key="item.name"
         class="liItem">
             Name: {{item.name}} | |
@@ -19,13 +19,13 @@ import AddUser from '@/components/AddUser/AddUser.vue'
 import { useUsers } from '../../store/users'
 export default {
   components: { AddUser },
-    setup(){
-        const data = useUsers()
-        data.getUsers()
-        return{
-            data
-        }
-    }
+  setup(){
+      const get = useUsers()
+      get.getUsers()
+      return{
+          get
+      }
+  }
 }
 </script>
 
