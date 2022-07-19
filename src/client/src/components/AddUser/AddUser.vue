@@ -1,5 +1,6 @@
 <template>
-    <div class="inputContain">
+    <form class="inputContain"
+        @submit="user.addUser(this.name, this.dni, this.age, this.phone, this.mail)">
         <div>
             <label>Full name</label>
             <input placeholder="Full name" type="text" v-model="name">
@@ -20,8 +21,8 @@
             <label>E-mail</label>
             <input placeholder="e-mail" type="text" v-model="mail">
         </div>
-        <button @click="user.addUser(this.name, this.dni, this.age, this.phone, this.mail)">Send</button>
-    </div>
+        <button type="submit">Send</button>
+    </form>
 </template>
 
 <script>
@@ -40,7 +41,6 @@ export default {
         const user = useUsers();
         const newUser = ()=>{
             user.addUser(this.name, this.dni, this.age, this.phone, this.mail);
-            user.getUsers()
         }
         return {
             user,
