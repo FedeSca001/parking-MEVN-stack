@@ -1,11 +1,29 @@
 <template>
-        <h2 class="title">filter</h2>
+        <h2 class="title">Filter</h2>
         <input
                 type="text"
                 placeholder="Name filter"
                 @input="
                         (e) => {
                                 filterByName(e.target.value);
+                        }
+                "
+        />
+        <input
+                type="number"
+                placeholder="Age filter"
+                @input="
+                        (e) => {
+                                filterByAge(e.target.value);
+                        }
+                "
+        />
+        <input
+                type="number"
+                placeholder="Dni filter"
+                @input="
+                        (e) => {
+                                filterByDni(e.target.value);
                         }
                 "
         />
@@ -29,11 +47,48 @@ export default {
         props: ["sendProp"],
         methods: {
                 filterByName(e) {
-                        let input = e;
-                        this.filteredOut = this.list.filter((element) => {
-                                return element.name == input;
-                                //console.log(element.name + "---" + input);
-                        });
+                        let input = e.toLowerCase();
+                        if (input === "") {
+                                return (this.filteredOut = []);
+                        } else {
+                                this.filteredOut = this.list.filter(
+                                        (element) => {
+                                                const nameString =
+                                                        element.name.toLowerCase();
+                                                return nameString === input;
+                                        }
+                                );
+                        }
+                },
+                filterByAge(e) {
+                        let input = Number(e);
+                        if (input == "" || input == 0) {
+                                return (this.filteredOut = []);
+                        } else {
+                                this.filteredOut = this.list.filter(
+                                        (element) => {
+                                                const ageNumber = Number(
+                                                        element.age
+                                                );
+                                                return ageNumber === input;
+                                        }
+                                );
+                        }
+                },
+                filterByDni(e) {
+                        let input = Number(e);
+                        if (input == "" || input == 0) {
+                                return (this.filteredOut = []);
+                        } else {
+                                this.filteredOut = this.list.filter(
+                                        (element) => {
+                                                const ageNumber = Number(
+                                                        element.dni
+                                                );
+                                                return ageNumber === input;
+                                        }
+                                );
+                        }
                 },
         },
 };
