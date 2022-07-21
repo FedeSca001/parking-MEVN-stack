@@ -21,7 +21,7 @@
             <label>E-mail</label>
             <input placeholder="e-mail" type="text" v-model="mail">
         </div>
-        <button type="submit" class="btnSubmit">Send</button>
+        <v-btn type="submit" class="btnSubmit">Send</v-btn>
     </form>
 </template>
 
@@ -39,12 +39,8 @@ export default {
     },
     setup(){
         const user = useUsers();
-        const newUser = ()=>{
-            user.addUser(this.name, this.dni, this.age, this.phone, this.mail);
-        }
         return {
             user,
-            newUser
         }
     }
 }
