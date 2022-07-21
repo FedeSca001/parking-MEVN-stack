@@ -1,6 +1,5 @@
 const express = require('express');
 const userSchem = require('../models/userSchem');
-
 const router = express.Router();
 
 //Busca toda la base de datos
@@ -26,7 +25,8 @@ router.get('/:id', async (req, res)=>{
 })
 
 //Add user
-router.post('/send', async (req, res)=>{
+// tutorial express-validator ---- https://tech-wiki.online/es/express-validate-input.html
+router.post('/send',async (req, res)=>{
     const { name, age, dni, phone, mail } = req.body;
     if (name && age && dni && phone && mail){
         try{
