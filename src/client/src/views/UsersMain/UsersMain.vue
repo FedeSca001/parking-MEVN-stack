@@ -58,13 +58,13 @@ export default {
 
 <style scoped>
 .swich {
-        margin: 2vw 4vw;
-        font-size: 2.3vw;
-        padding: 1.8vw;
+        margin: 1vw 2vw;
+        font-size: 1vw;
+        padding: 1vw;
         border: solid black 2.5px;
         background-color: brown;
         color: white;
-        border-radius: 2.5vw;
+        border-radius: 1.5vw;
 }
 .title {
         margin: 2vw 4vw;

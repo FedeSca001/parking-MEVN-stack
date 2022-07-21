@@ -21,7 +21,7 @@
             <label>E-mail</label>
             <input placeholder="e-mail" type="text" v-model="mail">
         </div>
-        <button type="submit">Send</button>
+        <button type="submit" class="btnSubmit">Send</button>
     </form>
 </template>
 
@@ -51,21 +51,30 @@ export default {
 </script>
 
 <style style>
+.btnSubmit{
+    padding: 1vw;
+    margin: 0.5vw 1vw;
+    border-radius: 1vw;
+    background-color: yellowgreen;
+    font-size: 1.5;
+    font-weight: 800;
+}
 .inputContain{
+    padding: 1.5vw;
     border: solid red 2px;
     width: 80vw;
     margin: 2vw 5vw;
 }
 .inputContain input{
-    font-size: 2vw;
+    font-size: 1vw;
     width: 10vw;
     margin: 0vw 2vw;
     border: solid black 1px;
     border-radius: 0.6vw;
 }
 .inputContain label{
-    font-size: 1.6vw;
+    font-size: 1vw;
     width: 6vw;
-    background-color: gold;
+    font-weight: 700;
 }
 </style>
