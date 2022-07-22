@@ -28,11 +28,11 @@ POST http://localhost:5000/users/send HTTP/1.1
 Content-Type: application/json
 
 {
-    "name": "",
+    "name": "lala",
     "age": 15,
     "dni": 13664558,
-    "phone":"6666666",
-    "mail":""
+    "phone":"333333",
+    "mail":"lala@gma"
 }
 ###
 GET http://localhost:5000/users/ HTTP/1.1
